@@ -34,9 +34,9 @@ ans:SELECT * FROM movies WHERE year BETWEEN 2000 AND 2010;
 ans:SELECT * FROM movies WHERE year  NOT BETWEEN  2000 AND 2010;
 
 4.Find the first 5 Pixar movies and their release year 
----------------------------------------------------------------------
-exercise 3:
 
+exercise 3:
+--------------------------------------------------------------
 1.Find all the Toy Story movies 
 ans: SELECT title FROM movies WHERE title LIKE "TOY%";
 
