@@ -35,8 +35,10 @@ ans:SELECT * FROM movies WHERE year  NOT BETWEEN  2000 AND 2010;
 
 4.Find the first 5 Pixar movies and their release year 
 
+ans: SELECT * FROM movies LIMIT 5;
+
 exercise 3:
---------------------------------------------------------------
+
 1.Find all the Toy Story movies 
 ans: SELECT title FROM movies WHERE title LIKE "TOY%";
 
@@ -49,10 +51,8 @@ ans:SELECT * FROM movies WHERE director!="John Lasseter";
 4.Find all the WALL-* movies
 ans:select title from Movies where title like 'WALL%'
 
-ans: SELECT * FROM movies LIMIT 5;
 
 exercise4:
---------------------------------------------------------------------------
 1.List all directors of Pixar movies (alphabetically), without duplicates 
 ans:SELECT DISTINCT(director) FROM movies ORDER BY director ASC;
 
@@ -66,7 +66,6 @@ ans: select title from movies order by title asc limit 5;
 ans:SELECT title FROM movies ORDER BY title ASC LIMIT 5,5 ;
 
 exercise 5:
----------------------------------------------------------------------------------------
 1.List all the Canadian cities and their populations 
 ans:SELECT CITY , POPULATION FROM north_american_cities WHERE country='Canada'
 
@@ -85,7 +84,7 @@ ans:SELECT * FROM north_american_cities where country='Mexico' order by populati
 ans:SELECT * FROM north_american_cities where country='United States' order by population desc limit 2,2;
 
 exercise 6:
---------------------------------------------------------------------------------------
+
 1.Find the domestic and international sales for each movie 
 ans:SELECT title,domestic_sales,international_sales FROM movies inner join boxoffice on movies.id=boxoffice.movie_id;
 
@@ -97,3 +96,53 @@ where International_sales>Domestic_sales order by International_sales desc;
 3.List all the movies by their ratings in descending order 
 ans:SELECT * FROM movies inner join boxoffice on movies.id=boxoffice.movie_id
  order by boxoffice.rating desc;
+
+exercise 13:
+
+1.Add the studio's new production, Toy Story 4 to the list of movies (you can use any director) 
+ans:insert into movies (title,director) values ('Toy Story5','John Lasseter');
+
+exercise 14:
+1.The director for A Bug's Life is incorrect, it was actually directed by John Lasseter 
+ans:update movies set director = 'John Lasseter' where title="A Bug's Life";
+
+2.The year that Toy Story 2 was released is incorrect, it was actually released in 1999 
+ans:update movies set year = 1999 where title = 'Toy Story 2'
+
+3.Both the title and director for Toy Story 8 is incorrect! The title should be "Toy Story 3" and it was directed by Lee Unkrich 
+ans:Update Movies set Title = 'Toy Story 3', Director = 'Lee Unkrich' 
+where Title = 'Toy Story 8';
+
+exercise 15:
+1.This database is getting too big, lets remove all movies that were released before 2005
+ans:delete from movies where year < 2005;
+
+2.Andrew Stanton has also left the studio, so please remove all movies directed by him.
+ans:delete from movies where director="Andrew Stanton"
+
+exercise 16:
+1.Create a new table named Database with the following columns:
+– Name A string (text) describing the name of the database
+– Version A number (floating point) of the latest version of this database
+– Download_count An integer count of the number of times this database was downloaded
+This table has no constraints. 
+
+ans :create table database(
+    name varchar(45),
+    version float,
+    download_count int
+)
+
+exercise 17:
+1.Add a column named Aspect_ratio with a FLOAT data type to store the aspect-ratio each movie was released in.
+ans:alter table movies add Aspect_ratio FLOAT
+
+2.Add another column named Language with a TEXT data type to store the language that the movie was released in. Ensure that the default for this language is English.
+ans:alter table movies add language varchar(30) default 'English'
+
+exercise 18:
+1.We've sadly reached the end of our lessons, lets clean up by removing the Movies table
+ans: drop table movies;
+
+2.And drop the BoxOffice table as well.
+ans:drop table boxoffice;
