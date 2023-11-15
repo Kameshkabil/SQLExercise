@@ -34,5 +34,19 @@ ans:SELECT * FROM movies WHERE year BETWEEN 2000 AND 2010;
 ans:SELECT * FROM movies WHERE year  NOT BETWEEN  2000 AND 2010;
 
 4.Find the first 5 Pixar movies and their release year 
+---------------------------------------------------------------------
+exercise 3:
+
+1.Find all the Toy Story movies 
+ans: SELECT title FROM movies WHERE title LIKE "TOY%";
+
+2.Find all the movies directed by John Lasseter
+ans:SELECT * FROM movies WHERE director='John Lasseter';
+
+3.Find all the movies (and director) not directed by John Lasseter
+ans:SELECT * FROM movies WHERE director!="John Lasseter";
+
+4.Find all the WALL-* movies
+ans:select title from Movies where title like 'WALL%'
 
 ans: SELECT * FROM movies LIMIT 5;
