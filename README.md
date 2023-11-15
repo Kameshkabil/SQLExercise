@@ -10,7 +10,8 @@ ans: SELECT director FROM movies;
 ```
 
 ### 3.Find the title and director of each film
-```sql ans:SELECT title,director FROM movies;
+```sql
+ans:SELECT title,director FROM movies;
 ```
 
 ### 4.Find the title and year of each film 
@@ -32,12 +33,12 @@ ans:SELECT * FROM movies WHERE id=6;
 
 ### 2.Find the movies released in the years between 2000 and 2010 
 ```sql
-SELECT * FROM movies WHERE year BETWEEN 2000 AND 2010;
+ans: SELECT * FROM movies WHERE year BETWEEN 2000 AND 2010;
 ```
 
 ### 3.Find the movies not released in the years between 2000 and 2010 
 ```sql 
-ans:SELECT * FROM movies WHERE year  NOT BETWEEN  2000 AND 2010;
+ans: SELECT * FROM movies WHERE year  NOT BETWEEN  2000 AND 2010;
 ```
 
 ### 4.Find the first 5 Pixar movies and their release year 
@@ -174,11 +175,7 @@ ans:delete from movies where director="Andrew Stanton"
 ```
 
 # exercise 16:
-### 1.Create a new table named Database with the following columns:
-### – Name A string (text) describing the name of the database
-### – Version A number (floating point) of the latest version of this database
-### – Download_count An integer count of the number of times this database was downloaded
-### This table has no constraints. 
+### 1.Create a new table named Database with the following columns: – Name A string (text) describing the name of the database – Version A number (floating point) of the latest version of this database – Download_count An integer count of the number of times this database was downloadedThis table has no constraints. 
 
 ```sql
 ans :create table database(
@@ -191,7 +188,7 @@ ans :create table database(
 # exercise 17:
 ### 1.Add a column named Aspect_ratio with a FLOAT data type to store the aspect-ratio each movie was released in.
 ```sql
-ans:alter table movies add Aspect_ratio FLOAT
+ans:alter table movies add Aspect_ratio float;
 ```
 
 ### 2.Add another column named Language with a TEXT data type to store the language that the movie was released in. Ensure that the default for this language is English.
